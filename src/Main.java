@@ -31,7 +31,7 @@ public class Main extends Application {
         root.getStylesheets().add(getClass().getResource(nameOfScene+".fxml").toExternalForm());
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-
+        System.out.println("Great implementation Lavdim!");
     }
     public static void main(String[] args) {
         launch(args);
