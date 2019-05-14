@@ -35,6 +35,10 @@ public class Main extends Application {
         System.out.println("my name is raghudeep");
     }
     public static void main(String[] args) {
+        //JDBC starts
+        DB_Connection connection = new DB_Connection();
+        connection.doAHandshake();
+        //JDBC ends
         launch(args);
 
     }
