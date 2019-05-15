@@ -2,14 +2,14 @@ import java.sql.DriverManager;
 //import com.mysql.jdbc.Connection;
 import java.sql.*;
 
-public class DB_Connection {
+public class DB {
 
 
     String url = "jdbc:mysql://den1.mysql5.gear.host:3306?user=xtracker&password=Kt4j_?V18w07";
 
     Statement statement;
 
-    public DB_Connection() {
+    public DB() {
         try {
             Connection c = (Connection) DriverManager.getConnection(url);
             statement = c.createStatement();
@@ -23,7 +23,6 @@ public class DB_Connection {
         try {
             ResultSet rs = statement.executeQuery("SHOW databases");
 
-
             while(rs.next())
             {
                 System.out.println(" This database ==> " + rs.getString(1));
@@ -32,7 +31,7 @@ public class DB_Connection {
         }
         catch (SQLException ex)
         {
-            System.out.println("error on executing the query");
+            System.out.println("error on executing the handshake");
         }
     }
 }

@@ -36,8 +36,8 @@ public class Main extends Application {
     }
     public static void main(String[] args) {
         //JDBC starts
-        DB_Connection connection = new DB_Connection();
-        connection.doAHandshake();
+        DB db = new DB();
+        db.doAHandshake();
         //JDBC ends
         launch(args);
 
