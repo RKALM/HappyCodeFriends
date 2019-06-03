@@ -38,6 +38,7 @@ public class Main extends Application {
         System.out.println("Great implementation Lavdim!");
         System.out.println("my name is raghudeep");
         System.out.println(encrypted("Robert"));
+        HelloWorld.PdfFun();
     }
     public static void main(String[] args) {
         //JDBC starts
