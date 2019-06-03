@@ -5,6 +5,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Main extends Application {
     public static final String Scene1 = "Scene1";
     public static final String Scene2 = "Scene2";
@@ -33,6 +37,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         System.out.println("Great implementation Lavdim!");
         System.out.println("my name is raghudeep");
+        System.out.println(encrypted("Robert"));
     }
     public static void main(String[] args) {
         //JDBC starts
@@ -41,5 +46,24 @@ public class Main extends Application {
         //JDBC ends
         launch(args);
 
+    }
+
+    //transforms a string to a hash encryption. This method uses the help of bytesToHex method.
+    public static String encrypted(String digested) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] encodedhash = digest.digest(
+                digested.getBytes(StandardCharsets.UTF_8));
+        return bytesToHex(encodedhash);
+    }
+
+    //this method transforms  a byte stream to a Hex format. We use this method for our hash encryption.
+    private static String bytesToHex(byte[] hash) {
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < hash.length; i++) {
+            String hex = Integer.toHexString(0xff & hash[i]);
+            if(hex.length() == 1) hexString.append('0');
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
 }
