@@ -23,6 +23,10 @@ public class HelloWorld
             Graphics2D g2d = newPage.createGraphics();
             g2d.setFont (PDFGraphics.HELVETICA.deriveFont(24f));
             g2d.drawString("Hello World", 100, 100);
+            g2d.drawString("===========", 100, 120);
+            for(int x = 0; x<10; x++){
+                g2d.drawString("Yolo " + x, 100, 150 + (x * 30));
+            }
 
             // Add the page to the document and save it
             pdfDoc.addPage(newPage);
